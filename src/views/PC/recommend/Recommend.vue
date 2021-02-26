@@ -13,12 +13,12 @@
           <div>
             {{ item['商品名称'].substring(0, 40) + '...' }}
           </div>
-          <div class="comm">
+          <!-- <div class="comm">
             共<span style="color:#646fb0">{{ item['总评价数']}}</span>条评论
           </div>
           <div class="shop">
             {{item['店铺名称']}}
-          </div>
+          </div> -->
         </div>
         <div
           class="footer"

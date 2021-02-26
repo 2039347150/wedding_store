@@ -1,54 +1,53 @@
 <template>
   <footer class="footer">
-    <el-divider></el-divider>
-    <div class="box">
-      <div class="first-line" v-for="(item, index) in arr1" :key="index">
-        <el-link class="text">{{ item }}</el-link>
-        <el-divider
-          direction="vertical"
-          v-if="index != arr1.length - 1"
-        ></el-divider>
+    <div class="footer-title">
+      <div class="footer-item">
+        <el-row>
+          <el-col span="8">
+            <h1>FREE SHIPPING</h1>
+            <p>ON ORDER OVER RS999</p>
+          </el-col>
+          <el-col span="8">
+            <h1>ORDER RETURN</h1>
+            <p>RETURN WITHIN 14DAYS</p>
+          </el-col>
+          <el-col span="8">
+            <h1>COD</h1>
+            <p>CASH ON DELIVERY</p>
+          </el-col>
+        </el-row>
       </div>
     </div>
+    <!-- <el-divider></el-divider> -->
     <div class="box">
-      <div class="second-line" v-for="(item, index) in arr2" :key="index">
-        <span class="text">{{ item }}</span>
-        <el-divider
-          direction="vertical"
-          v-if="index != arr2.length - 1"
-        ></el-divider>
-      </div>
+      <el-row>
+        <el-col span="5">
+          <div class="first-line"><span>About Us</span></div>
+          <div class="second-line" v-for="(item, index) in arr1" :key="index">
+            <span class="text">{{ item }}</span>        
+          </div>
+        </el-col>
+        <el-col span="5">
+          <div class="first-line"><span>Customer service</span></div>
+          <div class="second-line" v-for="(item, index) in arr2" :key="index">
+            <span class="text">{{ item }}</span>
+          </div>
+        </el-col>
+        <el-col span="5">
+          <div class="first-line"><span>Your account</span></div>
+          <div class="second-line" v-for="(item, index) in arr3" :key="index">
+            <span class="text">{{ item }}</span>
+          </div>
+        </el-col>
+        <el-col span="5">
+          <div class="first-line"><span>Categories</span></div>
+          <div class="second-line" v-for="(item, index) in arr4" :key="index">
+            <span class="text">{{ item }}</span>
+          </div>
+        </el-col>
+      </el-row>
     </div>
-    <div class="box">
-      <div class="second-line" v-for="(item, index) in arr3" :key="index">
-        <span class="text">
-          {{ item }}
-        </span>
-        <el-divider
-          direction="vertical"
-          v-if="index != arr3.length - 1"
-        ></el-divider>
-      </div>
-    </div>
-    <div class="box">
-      <div class="second-line" v-for="(item, index) in arr4" :key="index">
-        <span class="text">{{ item }}</span>
-        <el-divider
-          direction="vertical"
-          v-if="index != arr4.length - 1"
-        ></el-divider>
-      </div>
-    </div>
-    <div class="box">
-      <div class="second-line" v-for="(item, index) in arr5" :key="index">
-        <img src="/static/logo.png" alt="" width="12px" height="12px" />
-        <span class="text">{{ item }}} </span>
-        <el-divider
-          direction="vertical"
-          v-if="index != arr5.length - 1"
-        ></el-divider>
-      </div>
-    </div>
+    <div class="box" style="line-height:50px;">Copyright © 2015 Wedding Store All rights reserved</div>
   </footer>
 </template>
  
@@ -58,46 +57,35 @@ export default {
   data() {
     return {
       arr1: [
-        '关于我们',
-        '联系我们',
-        '联系客服',
-        '合作招商',
-        '商家帮助',
-        '营销中心',
-        '手机京东',
-        '友情链接',
-        '销售联盟',
-        '京东社区',
-        '风险监测',
-        '隐私政策',
-        '京东公益',
-        'English Site',
-        'Media & IR',
+        'Who We Are',
+        'Contact Us',
+        'Our Sites',
+        'In The News',
+        'Team',
+        'Carrers',
       ],
       arr2: [
-        '京公网安备 11000002000088号',
-        '京ICP证070359号',
-        '互联网药品信息服务资格证编号(京)-经营性-2014-0008',
-        '新出发京零 字第大120007号',
+        'FAQ',
+        'Shipping',
+        'Cancellation',
+        'Returns',
+        'Bulk Orders',
+        'Buying Guides',
       ],
       arr3: [
-        '互联网出版许可证编号新出网证(京)字150号',
-        '出版物经营许可证',
-        '网络文化经营许可证京网文[2014]2148-348号',
-        '违法和不良信息举报电话：4006561155',
+        'Your Account',
+        'Personal Information',
+        'Addresses',
+        'Discount',
+        'Track your order',
       ],
       arr4: [
-        'Copyright © 2004 - 2020  京东JD.com 版权所有',
-        '消费者维权热线：4006067733经营证照',
-        '(京)网械平台备字(2018)第00003号',
-        '营业执照 ',
-      ],
-      arr5: [
-        'Global Site',
-        'Сайт России',
-        'Situs Indonesia',
-        'Sitio de España',
-        'เว็บไซต์ประเทศไทย',
+        'Wedding',
+        'Jewellerys',
+        'Shoes',
+        'Flowers',
+        'Cakes',
+        '...More',
       ],
     };
   },
@@ -107,22 +95,64 @@ export default {
 <style scoped>
 .footer {
   background: #fff;
+  /* border:1px solid red; */
 }
-
+.footer-title{
+  /* border:1px solid blue; */
+  /* min-height:200px; */
+  padding:45px 0px;
+  margin-bottom:20px;
+  /* background:#eee; */
+}
+.footer-item{
+  width:1200px;
+  margin:0 auto;
+  text-align:center;
+}
+.footer-item .el-col{
+  border-right:3px solid rgb(218, 215, 215);
+}
+.footer-item .el-col:last-child{
+  border:none;
+}
+.box .el-col{
+  width:280px;
+  font-size:14px;
+  line-height:25px;
+  margin:0px 10px;
+}
+.footer-item h1{
+  color:black;
+  line-height:60px;
+}
+.footer-item p{
+  color:#d36630;
+  font-size:20px;
+}
 .footer .box {
+  width:1200px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
+  /* border:1px solid green; */
+  margin:0 auto;
 }
 
 .footer .first-line {
   color: #666;
-  font-size: 14px;
+  font-size: 18px;
+  padding:3px 0px;
+  margin-bottom:5px;
+  border-bottom:1px solid rgb(201, 199, 199);
 }
 
 .footer {
   color: #999;
   font-size: 13px;
   padding-bottom: 18px;
+}
+.footer span:hover{
+  color:rgb(38, 101, 238);
+  cursor: pointer;
 }
 </style>

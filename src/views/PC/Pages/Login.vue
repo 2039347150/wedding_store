@@ -4,14 +4,15 @@
     <div class="login">
       <div class="top">
         <router-link to="/PC/index">
-          <img src="/static/images/login/logo2.png" alt="图片" />
+          <!-- <img src="/static/images/login/logo2.png" alt="图片" /> -->
+          <h2>Wedding Store</h2>
         </router-link>
         <h2>欢迎登录</h2>
       </div>
       <!-- 登录面板 -->
       <div class="content">
         <div class="loginForm">
-          <img src="@/assets/bg.jpg" draggable="false" alt="图片" />
+          <!-- <img src="@/assets/bg.jpg" draggable="false" alt="图片" /> -->
           <div class="core">
             <div class="title">
               <h2 v-if="isLogin">账号登陆</h2>
@@ -258,10 +259,15 @@ export default {
 .top h2 {
   margin-left: 20px;
   color: #666;
+  font-family: FZShuTi;
+  line-height:60px;
 }
 
 .login .content {
   background: #f98985;
+  background: url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201807%2F31%2F20180731215649_yjlmr.thumb.700_0.jpeg&refer=http%3A%2F%2Fb-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1616912700&t=1a86c7ddc3e39d34da645084bc0cd33b);
+  height:454px;
+  background-size: 100% 100%;
 }
 
 .login .content .loginForm {

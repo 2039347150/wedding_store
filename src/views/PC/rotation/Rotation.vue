@@ -97,6 +97,9 @@ export default {
 img{
   /* width: */
 }
+h3{
+  font-family:FZYaoti;
+}
 .l-grids h4 {
 	font-size:1.4em;
   font-weight:400;

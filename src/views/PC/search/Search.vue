@@ -4,7 +4,7 @@
       <el-row type="flex" align="middle" class="row">
         <el-col :span="6" style="text-align:center">
           <router-link to="/PC/">
-            <div style="font-size:32px;color:black">
+            <div style="font-size:32px;color:black;font-family:FZShuTi">
               <!-- <img src="/static/logo.png" alt="" /> -->
               Wedding Store
             </div>

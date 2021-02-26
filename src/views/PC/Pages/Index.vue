@@ -27,6 +27,7 @@
       <recommend />
       <sec-kill />
     </div>
+    
     <my-footer />
   </div>
 </template>
