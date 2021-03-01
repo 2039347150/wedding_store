@@ -196,7 +196,7 @@
               </div>
               <div  style="margin-top:5px">
                 <span class="label" v-if="goodsDeatail['分类']!=='捧花'&&goodsDeatail['分类']!=='喜糖'"> 京东服务: </span>
-                <el-button size="mini"  v-if="goodsDeatail['分类']=='钻戒'">
+                <el-button size="mini"  v-if="goodsDeatail['分类']=='钻戒'||goodsDeatail['分类']=='三金'">
                   <i class="el-icon-mobile-phone"></i>
                   珠宝清洁服务 ￥9.00
                 </el-button>
