@@ -39,20 +39,20 @@
         <span class="div"> | </span>
         <el-link :underline="false" @click="toIndex()">商城首页</el-link>
         <span class="div"> | </span>
-        <el-link :underline="false" @click.native="helloUser()">开心果</el-link>
-        <span class="div"> | </span>
+        <el-link :underline="false" @click.native="helloUser()">开心一刻</el-link>
+        <!-- <span class="div"> | </span> -->
         <el-popover
           placement="top-start"
           title="作者信息"
           width="240"
           trigger="hover"
         >
-          <div>
+          <!-- <div>
             <div>@son:Z09418208</div>
             <div>@sname:蒋伟伟</div>
             <div>@email:1754082565@qq.com</div>
-          </div>
-          <el-link :underline="false" slot="reference"> 关于</el-link>
+          </div> -->
+          <!-- <el-link :underline="false" slot="reference"> 关于</el-link> -->
         </el-popover>
       </span>
     </div>

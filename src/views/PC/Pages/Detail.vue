@@ -55,8 +55,9 @@
             <div class="title">
               {{ goodsDeatail['标题'] }}
             </div>
-            <div class="subtitle" style="color: #e4393c; font-size: 12px">
-              【闪耀新年】全店钻石女戒每满300减40，12期免息，顺丰速达，直播间下单更优惠：查看>
+            <div class="subtitle" style="color: #e4393c; font-size: 12px;line-height:25px;">
+              {{ goodsDeatail['描述'] }}
+              <!-- 【闪耀新年】全店钻石女戒每满300减40，12期免息，顺丰速达，直播间下单更优惠：查看> -->
             </div>
             <!-- <div class="secKill"> -->
               <!-- <i class="el-icon-alarm-clock" style="font-size: 18px"></i> -->
@@ -93,7 +94,9 @@
                     限购
                   </el-tag>
                   <span class="des">
-                    该商品购买1-20件时享受单件价秒杀价，超出数量以结算价为准，仅限购买一次
+                    <span v-text="goodsDeatail['促销_赠品']"> </span>
+                    <!-- {{goodsDeatail['促销_赠品']}} -->
+                    <!-- 该商品购买1-20件时享受单件价秒杀价，超出数量以结算价为准，仅限购买一次 -->
                   </span>
                 </div>
               </div>
@@ -103,6 +106,10 @@
 
             <div class="buyType">
               <div>
+                <span class="label"> 配送方式： </span>
+                <span class="inline-block" style="font-size:14px;">{{ goodsDeatail['物流'] }}</span>
+              </div>
+              <div v-if="goodsDeatail['分类']=='钻戒'">
                 <span class="label"> 选择款式： </span>
                 <span
                   class="inline-block"
@@ -120,7 +127,7 @@
                 </span>
               </div>
               <!-- 增值服务 -->
-              <div>
+              <div v-if="goodsDeatail['分类']=='钻戒'">
                 <span class="label"> 增值服务: </span>
                 <el-button size="mini">
                   <i class="el-icon-mobile-phone"></i>
@@ -136,15 +143,90 @@
                 >
               </div>
               <!-- /增值服务 -->
-              <div>
+              <!-- <div v-if="goodsDeatail['分类']=='钻戒'">
                 <span class="label"> 京东服务: </span>
                 <el-button size="mini">
                   <i class="el-icon-mobile-phone"></i>
                   珠宝清洁服务 ￥9.00
                 </el-button>
+              </div>              -->
+              <div v-if="goodsDeatail['分类']=='捧花'">
+                <span class="label"> 增值保障: </span>
+                <el-button size="mini">
+                  <i class="el-icon-mobile-phone"></i>
+                  意外换新 ￥5.90
+                </el-button>
+                <el-button size="mini">
+                  <i class="el-icon-mobile-phone"></i>
+                  1年全保换新 ￥5.90
+                </el-button>
+                <el-button size="mini">
+                  <i class="el-icon-mobile-phone"></i>
+                  回收补贴 ￥1.50
+                </el-button>
               </div>
+              <div v-if="goodsDeatail['分类']=='婚服'">
+                <span class="label"> 选择尺码: </span>
+                <el-button size="mini">s</el-button>
+                <el-button size="mini">M</el-button>
+                <el-button size="mini">L</el-button>
+                <el-button size="mini">XL</el-button>
+                <el-button size="mini">XXL</el-button>
+                <el-button size="mini">3XL</el-button>
+                <el-button size="mini">定做尺寸不予退换</el-button>
+              </div>
+              <div v-if="goodsDeatail['分类']=='婚服'||goodsDeatail['分类']=='四件套'">
+                <span class="label"> 增值保障: </span>
+                <el-button size="mini" v-if="goodsDeatail['分类']=='婚服'">
+                  <i class="el-icon-mobile-phone"></i>
+                  三月意外换新 ￥13.90
+                </el-button>
+                <el-button size="mini" v-if="goodsDeatail['分类']=='婚服'">
+                  <i class="el-icon-mobile-phone"></i>
+                  意外破洞饱保 ￥9.90
+                </el-button>
+                <el-button size="mini" v-if="goodsDeatail['分类']=='四件套'">
+                  <i class="el-icon-mobile-phone"></i>
+                  一年全保换新 ￥49.90
+                </el-button>
+                <el-button size="mini" v-if="goodsDeatail['分类']=='四件套'">
+                  <i class="el-icon-mobile-phone"></i>
+                  回收服务 ￥59.90
+                </el-button>
+              </div>
+              <div  style="margin-top:5px">
+                <span class="label" v-if="goodsDeatail['分类']!=='捧花'&&goodsDeatail['分类']!=='喜糖'"> 京东服务: </span>
+                <el-button size="mini"  v-if="goodsDeatail['分类']=='钻戒'">
+                  <i class="el-icon-mobile-phone"></i>
+                  珠宝清洁服务 ￥9.00
+                </el-button>
+                <el-button size="mini" v-if="goodsDeatail['分类']=='婚服'">
+                  <i class="el-icon-mobile-phone"></i>
+                  衣服一件特价 ￥32.00
+                </el-button>
+                <el-button size="mini" v-if="goodsDeatail['分类']=='婚服'">
+                  <i class="el-icon-mobile-phone"></i>
+                  裤长改短 ￥9.90
+                </el-button>
+                <el-button size="mini" v-if="goodsDeatail['分类']=='四件套'">
+                  <i class="el-icon-mobile-phone"></i>
+                  家纺任洗1套 ￥60.90
+                </el-button>
+              </div>              
+              <div v-if="goodsDeatail['分类']=='喜糖'||goodsDeatail['分类']=='四件套'"  style="margin-top:5px;line-height:25px;">
+                <span class="label"> 重量: {{goodsDeatail['重量']}}</span>
+              </div>              
+              <div v-if="goodsDeatail['分类']=='四件套'"  style="margin-top:5px;line-height:25px;">
+                <span class="label">选择适用床尺寸：</span>
+                <el-button size="mini">
+                  <span>1.5米</span> 
+                </el-button>
+                <el-button size="mini">
+                  <span>1.8米</span>
+                </el-button>
+              </div>              
               <!-- 白条分期 -->
-              <div>
+              <div style="margin-top:5px">
                 <span class="label"> 白条分期: </span>
                 <el-button size="mini">
                   <i class="el-icon-money"></i>
@@ -564,6 +646,7 @@ export default {
 .detail .core .right .valueCard .value {
   font-size: 20px;
   color: #e4393c;
+  line-height:35px;
 }
 
 .detail .core .right .free .multi {
