@@ -2,12 +2,13 @@
   <div id="app">
     <div class="content">
       <el-row type="flex" align="middle" class="row">
-        <el-col :span="4">
-          <div @click="toBack()" class="pointer">
-            <img src="/static/logo.png" alt="" width="80px" height="80px" />
+        <el-col :span="8">
+          <div @click="toBack()" class="pointer" style="font-size:32px;color:black;font-family:FZShuTi;text-align:center;">
+            <!-- <img src="/static/logo.png" alt="" width="80px" height="80px" /> -->
+            Wedding Store
           </div>
         </el-col>
-        <el-col :span="20">
+        <el-col :span="16">
           <!-- 搜索框第一行 -->
           <el-row>
             <el-col :span="12" :push="1">
@@ -119,15 +120,14 @@ export default {
     },
     loadAll() {
       return [
-        { value: '小米' },
-        { value: '苹果' },
-        { value: '三星' },
-        { value: 'realme' },
-        { value: 'apple' },
-        { value: '手机 | 小米手机' },
-        { value: '手机 | 三星手机' },
-        { value: '手机 | 苹果手机' },
-        { value: '手机 | 华为手机' },
+        { value: '钻戒' },
+        { value: '捧花' },
+        { value: '婚服' },
+        { value: '四件套' },
+        { value: '喜糖' },
+        { value: '三金' },
+        { value: '婚鞋' },
+        { value: '蛋糕' },
       ];
     },
     handleSelect(item) {

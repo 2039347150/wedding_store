@@ -153,15 +153,15 @@ export default {
     },
     loadAll() {
       return [
-        { value: '小米' },
-        { value: '苹果' },
-        { value: '三星' },
-        { value: 'realme' },
-        { value: 'apple' },
-        { value: '手机 | 小米手机' },
-        { value: '手机 | 三星手机' },
-        { value: '手机 | 苹果手机' },
-        { value: '手机 | 华为手机' },
+        { value: '钻戒' },
+        { value: '捧花' },
+        { value: '婚服' },
+        { value: '四件套' },
+        { value: '喜糖' },
+        { value: '三金' },
+        { value: '婚鞋' },
+        { value: '蛋糕' },
+        // { value: '手机 | 华为手机' },
       ];
     },
     handleSelect(item) {

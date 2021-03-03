@@ -83,8 +83,8 @@ export default {
         // 如果数据量超过30就停止继续加载
         console.log('滚动条触底了');
         console.log(this.$store.getters.getStoreCount);
-        console.log(this.$store.getters.getStoreCount >= 30);
-        if (this.$store.getters.getStoreCount >= 30) {
+        console.log(this.$store.getters.getStoreCount >= 35);
+        if (this.$store.getters.getStoreCount >= 35) {
           window.removeEventListener('scroll', scrollTo);
           console.log('-------------------');
           console.log('执行了移除加载事件');

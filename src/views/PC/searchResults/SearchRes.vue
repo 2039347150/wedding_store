@@ -34,7 +34,7 @@
       <!-- 搜索结果为空显示 -->
       <template v-else>
         <div class="fullWidth bgWhite msgCard">
-          <h2>暂无相关信息，请重新搜索！（例如搜索小米、apple、三星等）</h2>
+          <h2>暂无相关信息，请重新搜索！（例如搜索钻戒、婚服、捧花等）</h2>
         </div>
       </template>
       <!-- /搜索结果为空显示 -->
@@ -125,7 +125,7 @@ export default {
 
 <style scoped>
 .bottomCard {
-  margin: 10px;
+  margin-top: 10px;
   border-radius: 8px;
   text-align: center;
   background: #fff;

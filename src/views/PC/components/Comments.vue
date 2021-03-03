@@ -1,7 +1,7 @@
 <template>
   <div class="comment">
     <el-divider>用户评论</el-divider>
-    <div v-for="(item, index) in comments" :key="index">
+    <div v-for="(item, index) in clothComments" :key="index">
       <el-card shadow="hover">
         <div class="box">
           <div class="head">
@@ -50,17 +50,102 @@ export default {
   name: 'Comments',
   data() {
     return {
-      comments: [],
+      clothComments: [],
+      shoeComments:[],
+      ringComments:[],
+      flowerComments:[],
+      bedComments:[],
+      candyComments:[],
+      necklaceComments:[],
     };
   },
   created() {
     this.$axios({
       type: 'get',
-      url: 'http://localhost:8080/api/comments',
+      url: 'http://localhost:8080/api/clothComment',
     })
       .then((res) => {
+        // debugger
         console.log(res.data.comments);
-        this.comments = res.data.comments;
+        this.clothComments = res.data.comments;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    this.$axios({
+      type: 'get',
+      url: 'http://localhost:8080/api/shoeComment',
+    })
+      .then((res) => {
+        // debugger
+        console.log(res.data.comments);
+        this.shoeComments = res.data.comments;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    this.$axios({
+      type: 'get',
+      url: 'http://localhost:8080/api/ringComment',
+    })
+      .then((res) => {
+        // debugger
+        console.log(res.data.comments);
+        this.ringComments = res.data.comments;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    this.$axios({
+      type: 'get',
+      url: 'http://localhost:8080/api/flowerComment',
+    })
+      .then((res) => {
+        // debugger
+        console.log(res.data.comments);
+        this.flowerComments = res.data.comments;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    this.$axios({
+      type: 'get',
+      url: 'http://localhost:8080/api/candyComment',
+    })
+      .then((res) => {
+        // debugger
+        console.log(res.data.comments);
+        this.candyComments = res.data.comments;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    this.$axios({
+      type: 'get',
+      url: 'http://localhost:8080/api/bedComment',
+    })
+      .then((res) => {
+        // debugger
+        console.log(res.data.comments);
+        this.bedComments = res.data.comments;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    this.$axios({
+      type: 'get',
+      url: 'http://localhost:8080/api/necklaceComment',
+    })
+      .then((res) => {
+        // debugger
+        console.log(res.data.comments);
+        this.necklaceComments = res.data.comments;
       })
       .catch(function (error) {
         console.log(error);

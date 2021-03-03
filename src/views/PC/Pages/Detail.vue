@@ -69,7 +69,7 @@
                 <span class="rmb">¥</span>
                 <span v-text="getPrice"> </span>
               </div>
-              <div class="cuxiao">
+              <div class="cuxiao" v-if="goodsDeatail['促销_赠品']!==''">
                 <span class="label">促销品：</span>
                 <span class="free">
                   <span>
@@ -129,70 +129,42 @@
               <!-- 增值服务 -->
               <div v-if="goodsDeatail['分类']=='钻戒'">
                 <span class="label"> 增值服务: </span>
-                <el-button size="mini">
-                  <i class="el-icon-mobile-phone"></i>
-                  三年质保</el-button
-                >
-                <el-button size="mini">
-                  <i class="el-icon-mobile-phone"></i>
-                  半年掉钻保 ￥9.00
+                <el-button size="mini" v-for="(item,idx) in ringQuality" :key="idx">
+                  <i class="el-icon-mobile-phone"></i>{{item}}
                 </el-button>
-                <el-button size="mini">
-                  <i class="el-icon-mobile-phone"></i>
-                  一年换新</el-button
-                >
               </div>
-              <!-- /增值服务 -->
-              <!-- <div v-if="goodsDeatail['分类']=='钻戒'">
-                <span class="label"> 京东服务: </span>
-                <el-button size="mini">
-                  <i class="el-icon-mobile-phone"></i>
-                  珠宝清洁服务 ￥9.00
-                </el-button>
-              </div>              -->
               <div v-if="goodsDeatail['分类']=='捧花'">
                 <span class="label"> 增值保障: </span>
-                <el-button size="mini">
-                  <i class="el-icon-mobile-phone"></i>
-                  意外换新 ￥5.90
+                <el-button size="mini" v-for="(item,idx) in flowerQuality" :key="idx">
+                  <i class="el-icon-mobile-phone"></i>{{item}}
                 </el-button>
-                <el-button size="mini">
-                  <i class="el-icon-mobile-phone"></i>
-                  1年全保换新 ￥5.90
-                </el-button>
-                <el-button size="mini">
-                  <i class="el-icon-mobile-phone"></i>
-                  回收补贴 ￥1.50
+              </div>
+              <div v-if="goodsDeatail['分类']=='婚鞋'">
+                <span class="label"> 增值保障: </span>
+                <el-button size="mini" v-for="(item,idx) in shoeQuality" :key="idx">
+                  <i class="el-icon-mobile-phone"></i>{{item}}
                 </el-button>
               </div>
               <div v-if="goodsDeatail['分类']=='婚服'">
                 <span class="label"> 选择尺码: </span>
-                <el-button size="mini">s</el-button>
-                <el-button size="mini">M</el-button>
-                <el-button size="mini">L</el-button>
-                <el-button size="mini">XL</el-button>
-                <el-button size="mini">XXL</el-button>
-                <el-button size="mini">3XL</el-button>
-                <el-button size="mini">定做尺寸不予退换</el-button>
+                <el-button size="mini" v-for="(item,index) in clothSize" :key="index">{{item}}</el-button>
+              </div>
+              <div v-if="goodsDeatail['分类']=='婚鞋'">
+                <span class="label"> 选择尺码: </span>
+                <el-button size="mini" v-for="(item,index) in shoeSize" :key="index">{{item}}</el-button>
               </div>
               <div v-if="goodsDeatail['分类']=='婚服'||goodsDeatail['分类']=='四件套'">
                 <span class="label"> 增值保障: </span>
-                <el-button size="mini" v-if="goodsDeatail['分类']=='婚服'">
-                  <i class="el-icon-mobile-phone"></i>
-                  三月意外换新 ￥13.90
-                </el-button>
-                <el-button size="mini" v-if="goodsDeatail['分类']=='婚服'">
-                  <i class="el-icon-mobile-phone"></i>
-                  意外破洞饱保 ￥9.90
-                </el-button>
-                <el-button size="mini" v-if="goodsDeatail['分类']=='四件套'">
-                  <i class="el-icon-mobile-phone"></i>
-                  一年全保换新 ￥49.90
-                </el-button>
-                <el-button size="mini" v-if="goodsDeatail['分类']=='四件套'">
-                  <i class="el-icon-mobile-phone"></i>
-                  回收服务 ￥59.90
-                </el-button>
+                <span v-if="goodsDeatail['分类']=='婚服'">
+                  <el-button size="mini" v-for="(item,idx) in clothQuality" :key="idx">
+                    <i class="el-icon-mobile-phone"></i>{{item}}
+                  </el-button>
+                </span>
+                <span v-if="goodsDeatail['分类']=='四件套'">
+                  <el-button size="mini" v-for="(item,idx) in fourQuality" :key="idx">
+                    <i class="el-icon-mobile-phone"></i>{{item}}
+                  </el-button>
+                </span>
               </div>
               <div  style="margin-top:5px">
                 <span class="label" v-if="goodsDeatail['分类']!=='捧花'&&goodsDeatail['分类']!=='喜糖'"> 京东服务: </span>
@@ -200,14 +172,16 @@
                   <i class="el-icon-mobile-phone"></i>
                   珠宝清洁服务 ￥9.00
                 </el-button>
-                <el-button size="mini" v-if="goodsDeatail['分类']=='婚服'">
-                  <i class="el-icon-mobile-phone"></i>
-                  衣服一件特价 ￥32.00
-                </el-button>
-                <el-button size="mini" v-if="goodsDeatail['分类']=='婚服'">
-                  <i class="el-icon-mobile-phone"></i>
-                  裤长改短 ￥9.90
-                </el-button>
+                <span v-if="goodsDeatail['分类']=='婚服'">
+                  <el-button size="mini" v-for="(item,idx) in clothService" :key="idx">
+                    <i class="el-icon-mobile-phone"></i>{{item}}
+                  </el-button>
+                </span>
+                <span v-if="goodsDeatail['分类']=='婚鞋'">
+                  <el-button size="mini" v-for="(item,idx) in shoeService" :key="idx">
+                    <i class="el-icon-mobile-phone"></i>{{item}}
+                  </el-button>
+                </span>
                 <el-button size="mini" v-if="goodsDeatail['分类']=='四件套'">
                   <i class="el-icon-mobile-phone"></i>
                   家纺任洗1套 ￥60.90
@@ -218,11 +192,8 @@
               </div>              
               <div v-if="goodsDeatail['分类']=='四件套'"  style="margin-top:5px;line-height:25px;">
                 <span class="label">选择适用床尺寸：</span>
-                <el-button size="mini">
-                  <span>1.5米</span> 
-                </el-button>
-                <el-button size="mini">
-                  <span>1.8米</span>
+                <el-button size="mini" v-for="(item,index) in bedSize" :key="index">
+                  <span>{{item}}</span> 
                 </el-button>
               </div>              
               <!-- 白条分期 -->
@@ -279,30 +250,30 @@
           <div class="shopCard">
             <el-card shadow="hover" body-style="padding:0px">
               <div class="shopTitle">
-                {{ goodsDeatail['店铺名称'] || '常开泰达手机店' }}
+                {{ goodsDeatail['店铺名称']}}
               </div>
               <div style="margin-left: 8px; margin-top: 6px">
-                <div class="star" style="display: flex">
+                <div class="star" style="display: flex" v-if="goodsDeatail['店铺星级']!==''">
                   <span>店铺星级</span>
                   <el-rate
-                    :value="4.5"
+                    :value="goodsDeatail['店铺星级']"
                     disabled
                     text-color="#ff9900"
                     score-template="{value}"
                   >
                   </el-rate>
                 </div>
-                <div class="goodsComment">
+                <div class="goodsComment"  v-if="goodsDeatail['商品评价']!==''">
                   <span>商品评价</span>
-                  <span class="comment"> 9.65 高 </span>
+                  <span class="comment"> {{goodsDeatail['商品评价']}} 高 </span>
                 </div>
-                <div class="goodsComment">
+                <div class="goodsComment" v-if="goodsDeatail['物流履约']!==''">
                   <span>物流旅约</span>
-                  <span class="comment">9.28 高</span>
+                  <span class="comment">{{goodsDeatail['物流履约']}} 高</span>
                 </div>
-                <div class="goodsComment">
+                <div class="goodsComment" v-if="goodsDeatail['售后服务']!==''">
                   <span>售后服务</span>
-                  <span class="comment">9.39 高</span>
+                  <span class="comment">{{goodsDeatail['售后服务']}} 高</span>
                 </div>
               </div>
               <el-divider />
@@ -369,6 +340,16 @@ export default {
       meanwhileNum: 6,
       tagIndex: 0,
       tagList: ['1.8克拉效果 K金钻戒共约40分', '2克拉效果 K金钻戒共约50分 ', '2克拉效果 铂金钻戒共约50分 '],
+      clothSize:['s','M','L','XL','XXL','3XL','定做尺寸不予退换'],
+      shoeSize:['34','35','36','37','38','39'],
+      bedSize:['1.5米','1.8米'],
+      ringQuality:['三年质保',' 半年掉钻保 ￥9.00 ','一年换新'],
+      flowerQuality:['意外换新 ￥5.90','1年全保换新 ￥5.90','回收补贴 ￥1.50'],
+      shoeQuality:[' 无忧洗3双 ￥58.0 ','无忧洗2双 ￥42.0 ','无忧洗5双 ￥95.0'],
+      clothQuality:['三月意外换新 ￥13.90 ','意外破洞饱保 ￥9.90'],
+      fourQuality:['一年全保换新 ￥49.90',' 回收服务 ￥59.90'],
+      clothService:['衣服一件特价 ￥32.00  ','裤长改短 ￥9.90'],
+      shoeService:['衣鞋一件特价 ￥32.00 ','洗衣2件 ￥46.00 ','洗衣3件 ￥63.00'],
     };
   },
   computed: {
