@@ -153,6 +153,10 @@
                 <span class="label"> 选择尺码: </span>
                 <el-button size="mini" v-for="(item,index) in shoeSize" :key="index">{{item}}</el-button>
               </div>
+              <div v-if="goodsDeatail['净含量']==''">
+                <span class="label"> 选择净含量: </span>
+                <el-button size="mini" v-for="(item,index) in cakeSize" :key="index">{{item}}</el-button>
+              </div>
               <div v-if="goodsDeatail['分类']=='婚服'||goodsDeatail['分类']=='四件套'">
                 <span class="label"> 增值保障: </span>
                 <span v-if="goodsDeatail['分类']=='婚服'">
@@ -167,7 +171,13 @@
                 </span>
               </div>
               <div  style="margin-top:5px">
-                <span class="label" v-if="goodsDeatail['分类']!=='捧花'&&goodsDeatail['分类']!=='喜糖'"> 京东服务: </span>
+                <span class="label" 
+                 v-if="goodsDeatail['分类']!=='捧花'&&
+                   goodsDeatail['分类']!=='喜糖'&&
+                   goodsDeatail['分类']!=='蛋糕'"
+                > 
+                   京东服务: 
+                </span>
                 <el-button size="mini"  v-if="goodsDeatail['分类']=='钻戒'||goodsDeatail['分类']=='三金'">
                   <i class="el-icon-mobile-phone"></i>
                   珠宝清洁服务 ￥9.00
@@ -265,15 +275,15 @@
                 </div>
                 <div class="goodsComment"  v-if="goodsDeatail['商品评价']!==''">
                   <span>商品评价</span>
-                  <span class="comment"> {{goodsDeatail['商品评价']}} 高 </span>
+                  <span class="comment" ref="goodRate"> {{goodsDeatail['商品评价']}} <span>{{goodRate}}</span> </span>
                 </div>
                 <div class="goodsComment" v-if="goodsDeatail['物流履约']!==''">
                   <span>物流旅约</span>
-                  <span class="comment">{{goodsDeatail['物流履约']}} 高</span>
+                  <span class="comment" ref="logisRate">{{goodsDeatail['物流履约']}} <span>{{logisRate}}</span> </span>
                 </div>
                 <div class="goodsComment" v-if="goodsDeatail['售后服务']!==''">
                   <span>售后服务</span>
-                  <span class="comment">{{goodsDeatail['售后服务']}} 高</span>
+                  <span class="comment" ref="serviceRate">{{goodsDeatail['售后服务']}} <span>{{serviceRate}}</span></span>
                 </div>
               </div>
               <el-divider />
@@ -343,6 +353,7 @@ export default {
       clothSize:['s','M','L','XL','XXL','3XL','定做尺寸不予退换'],
       shoeSize:['34','35','36','37','38','39'],
       bedSize:['1.5米','1.8米'],
+      cakeSize:['6英寸','8英寸','10英寸','12英寸','14英寸','16英寸','18英寸','20英寸'],
       ringQuality:['三年质保',' 半年掉钻保 ￥9.00 ','一年换新'],
       flowerQuality:['意外换新 ￥5.90','1年全保换新 ￥5.90','回收补贴 ￥1.50'],
       shoeQuality:[' 无忧洗3双 ￥58.0 ','无忧洗2双 ￥42.0 ','无忧洗5双 ￥95.0'],
@@ -352,6 +363,9 @@ export default {
       shoeService:['衣鞋一件特价 ￥32.00 ','洗衣2件 ￥46.00 ','洗衣3件 ￥63.00'],
       goodsType:'',
       storeUrl:'',
+      goodRate:'',
+      logisRate:'',
+      serviceRate:'',
     };
   },
   computed: {
@@ -486,6 +500,24 @@ export default {
         this.goodsDeatail = d[0];
         this.goodsType=this.goodsDeatail['分类'];
         this.storeUrl=this.goodsDeatail['店铺链接']
+        if(this.goodsDeatail['商品评价']>9){
+          this.goodRate='高'
+          this.$refs.goodRate.style['color'] = 'red';
+        }else{
+          this.goodRate='低'
+        }
+        if(this.goodsDeatail['物流履约']>9){
+          this.logisRate='高'
+          this.$refs.logisRate.style['color'] = 'red';
+        }else{
+          this.logisRate='低'
+        }
+        if(this.goodsDeatail['售后服务']>9){
+          this.serviceRate='高'
+          this.$refs.serviceRate.style['color'] = 'red';
+        }else{
+          this.serviceRate='低'
+        }
         // 处理轮播图
         let str = this.goodsDeatail['轮播图'];
         // console.log(this.goodsDeatail['轮播图']);

@@ -75,7 +75,7 @@
                 {{ element['商品名称'].substring(0, 15) + '...' }}
               </span>
               <value
-                :newValue="element['价格'] - 123"
+                :newValue="element['价格'] - 30"
                 :oldValue="element['价格']"
               />
             </div>

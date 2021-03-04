@@ -43,6 +43,7 @@ export default {
       candyComments:[],
       necklaceComments:[],
       comments:[],
+      cakeComments:[],
     };
   },
   methods:{
@@ -59,8 +60,10 @@ export default {
         this.comments=this.necklaceComments
       }else if(this.goodsType=='喜糖'){
         this.comments=this.candyComments
-      }else{
+      }else if(this.goodsType=='婚服'){
         this.comments=this.clothComments
+      }else{
+        this.comments=this.cakeComments
       }
     },
   },
@@ -143,6 +146,17 @@ export default {
     })
       .then((res) => {
         this.necklaceComments = res.data.comments;
+        this.getType()
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    this.$axios({
+      type: 'get',
+      url: 'http://localhost:8080/api/cakeComment',
+    })
+      .then((res) => {
+        this.cakeComments = res.data.comments;
         this.getType()
       })
       .catch(function (error) {

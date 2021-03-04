@@ -6,6 +6,7 @@ import flowerComment from './flowerComment.config';
 import bedComment from './bedComment.config';
 import candyComment from './candyComment.config';
 import necklaceComment from './necklaceComment.config';
+import cakeComment from './cakeComment.config';
 import headImg from './headImg.config';
 
 // 模拟 评论信息
@@ -114,6 +115,21 @@ const mockComment7 = Mock.mock('http://localhost:8080/api/necklaceComment', {
     },
   ],
 });
+const mockComment8 = Mock.mock('http://localhost:8080/api/cakeComment', {
+  'comments|8': [
+    {
+      name: '@cname',
+      email: '@email',
+      'age|18-20': 5,
+      'content|1': cakeComment,
+      'headImg|1': headImg,
+      // datetime: '@now(yyyy-MM-dd hh:mm:ss)',
+      datetime: '@now(yyyy-MM-dd) @increment(1):00:00',
+      'star|4-5': 5,
+      'isVIP|0-1': 0,
+    },
+  ],
+});
 export default {
   mockComment,
   mockComment2,
@@ -122,4 +138,5 @@ export default {
   mockComment5,
   mockComment6,
   mockComment7,
+  mockComment8,
 };
