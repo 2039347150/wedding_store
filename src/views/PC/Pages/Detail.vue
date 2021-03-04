@@ -256,7 +256,7 @@
                 <div class="star" style="display: flex" v-if="goodsDeatail['店铺星级']!==''">
                   <span>店铺星级</span>
                   <el-rate
-                    :value="goodsDeatail['店铺星级']"
+                    :value="parseFloat(goodsDeatail['店铺星级'])"
                     disabled
                     text-color="#ff9900"
                     score-template="{value}"
@@ -280,7 +280,7 @@
               <div class="allCenter" style="padding: 0 4px 20px">
                 <el-button size="small" round>
                   <i class="el-icon-shopping-bag-2"></i>
-                  进店逛逛
+                  <a :href="storeUrl" style="color:#333;">进店逛逛</a>
                 </el-button>
                 <el-button size="small" round>
                   <i class="el-icon-star-on"></i>
@@ -306,7 +306,7 @@
                 </div>
               </el-tab-pane>
               <el-tab-pane label="商品评论">
-                <comments />
+                <comments :goodsType="goodsType"/>
               </el-tab-pane>
             </el-tabs>
           </div>
@@ -350,6 +350,8 @@ export default {
       fourQuality:['一年全保换新 ￥49.90',' 回收服务 ￥59.90'],
       clothService:['衣服一件特价 ￥32.00  ','裤长改短 ￥9.90'],
       shoeService:['衣鞋一件特价 ￥32.00 ','洗衣2件 ￥46.00 ','洗衣3件 ￥63.00'],
+      goodsType:'',
+      storeUrl:'',
     };
   },
   computed: {
@@ -480,9 +482,10 @@ export default {
         const d = data.filter((item) => {
           return item.sku == this.$route.params.id;
         });
-        // console.log(d[0]);
+        // console.log(d[0],'888888');
         this.goodsDeatail = d[0];
-
+        this.goodsType=this.goodsDeatail['分类'];
+        this.storeUrl=this.goodsDeatail['店铺链接']
         // 处理轮播图
         let str = this.goodsDeatail['轮播图'];
         // console.log(this.goodsDeatail['轮播图']);

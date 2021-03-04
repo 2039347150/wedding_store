@@ -142,11 +142,11 @@ export default {
         let currentUser = users.filter((item) => {
           return item['username'] === userInfo['username'];
         })[0];
-        console.log(currentUser);
+        // console.log(currentUser);
 
         // 检索该用户是否已经将该商品加入购物车
         let res = this.isHaveThisGoods(currentUser, item);
-        console.log(res);
+        // console.log(res);
         if (res) {
           let carts = currentUser.carts;
           for (let i = 0; i < carts.length; i++) {
@@ -154,7 +154,7 @@ export default {
               carts[i]['num'] += item['num'];
             }
           }
-          console.log(currentUser.carts);
+          // console.log(currentUser.carts);
           currentUser.carts = carts;
         } else {
           currentUser.carts.push(item);
@@ -181,7 +181,7 @@ export default {
       let arr = user.carts.filter((item) => {
         return item['sku'] === goods['sku'];
       });
-      console.log(arr);
+      // console.log(arr);
       if (arr.length === 0) {
         return false;
       }
@@ -243,7 +243,7 @@ export default {
       url: 'http://localhost:8080/api/comments',
     })
       .then((res) => {
-        console.log(res.data.comments);
+        // console.log(res.data.comments);
         this.comments = res.data.comments.slice(0, 3);
       })
       .catch(function (error) {

@@ -63,7 +63,7 @@ export default {
       }
     },
     checkReg(userInfo) {
-      console.log('hello');
+      // console.log('hello');
       let obj = {
         userInfo,
         that: this,

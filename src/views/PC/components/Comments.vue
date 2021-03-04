@@ -1,41 +1,25 @@
 <template>
   <div class="comment">
     <el-divider>用户评论</el-divider>
-    <div v-for="(item, index) in clothComments" :key="index">
+    <div v-for="(item, index) in comments" :key="index">
       <el-card shadow="hover">
         <div class="box">
           <div class="head">
             <div class="img">
               <el-avatar :src="item.headImg"></el-avatar>
-              <span>
-                {{ item.name }}
-              </span>
+              <span>{{ item.name }}</span>
             </div>
             <div>
-              <el-tag type="primary" size="small" v-if="item.isVIP">
-                PLUS会员
-              </el-tag>
-              <el-tag type="info" size="small" v-if="!item.isVIP">
-                普通会员
-              </el-tag>
+              <el-tag type="primary" size="small" v-if="item.isVIP">PLUS会员</el-tag>
+              <el-tag type="info" size="small" v-if="!item.isVIP">普通会员</el-tag>
             </div>
           </div>
           <div class="right">
             <div class="stars">
-              <el-rate
-                :value="item.star"
-                disabled
-                show-text
-                text-color="#ff9900"
-              >
-              </el-rate>
-              <div class="time">
-                {{item.datetime}}
-              </div>
+              <el-rate :value="item.star" disabled show-text text-color="#ff9900" > </el-rate>
+              <div class="time">{{item.datetime}}</div>
             </div>
-            <div class="content">
-              {{item.content}}
-            </div>
+            <div class="content">{{item.content}}</div>
           </div>
         </div>
       </el-card>
@@ -48,6 +32,7 @@
 // import mock from 'mockjs'
 export default {
   name: 'Comments',
+  props:['goodsType'],
   data() {
     return {
       clothComments: [],
@@ -57,7 +42,27 @@ export default {
       bedComments:[],
       candyComments:[],
       necklaceComments:[],
+      comments:[],
     };
+  },
+  methods:{
+    getType(){
+      if(this.goodsType=='婚鞋'){
+        this.comments=this.shoeComments
+      }else if(this.goodsType=='捧花'){
+        this.comments=this.flowerComments
+      }else if(this.goodsType=='钻戒'){
+        this.comments=this.ringComments
+      }else if(this.goodsType=='四件套'){
+        this.comments=this.bedComments
+      }else if(this.goodsType=='三金'){
+        this.comments=this.necklaceComments
+      }else if(this.goodsType=='喜糖'){
+        this.comments=this.candyComments
+      }else{
+        this.comments=this.clothComments
+      }
+    },
   },
   created() {
     this.$axios({
@@ -65,9 +70,8 @@ export default {
       url: 'http://localhost:8080/api/clothComment',
     })
       .then((res) => {
-        // debugger
-        console.log(res.data.comments);
         this.clothComments = res.data.comments;
+        this.getType()
       })
       .catch(function (error) {
         console.log(error);
@@ -78,9 +82,8 @@ export default {
       url: 'http://localhost:8080/api/shoeComment',
     })
       .then((res) => {
-        // debugger
-        console.log(res.data.comments);
         this.shoeComments = res.data.comments;
+        this.getType()
       })
       .catch(function (error) {
         console.log(error);
@@ -91,9 +94,8 @@ export default {
       url: 'http://localhost:8080/api/ringComment',
     })
       .then((res) => {
-        // debugger
-        console.log(res.data.comments);
         this.ringComments = res.data.comments;
+        this.getType()
       })
       .catch(function (error) {
         console.log(error);
@@ -104,9 +106,8 @@ export default {
       url: 'http://localhost:8080/api/flowerComment',
     })
       .then((res) => {
-        // debugger
-        console.log(res.data.comments);
         this.flowerComments = res.data.comments;
+        this.getType()
       })
       .catch(function (error) {
         console.log(error);
@@ -117,9 +118,8 @@ export default {
       url: 'http://localhost:8080/api/candyComment',
     })
       .then((res) => {
-        // debugger
-        console.log(res.data.comments);
         this.candyComments = res.data.comments;
+        this.getType()
       })
       .catch(function (error) {
         console.log(error);
@@ -130,9 +130,8 @@ export default {
       url: 'http://localhost:8080/api/bedComment',
     })
       .then((res) => {
-        // debugger
-        console.log(res.data.comments);
         this.bedComments = res.data.comments;
+        this.getType()
       })
       .catch(function (error) {
         console.log(error);
@@ -143,13 +142,13 @@ export default {
       url: 'http://localhost:8080/api/necklaceComment',
     })
       .then((res) => {
-        // debugger
-        console.log(res.data.comments);
         this.necklaceComments = res.data.comments;
+        this.getType()
       })
       .catch(function (error) {
         console.log(error);
       });
+
   },
 };
 </script>

@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     onSubmit() {
-      console.log(this.goodsList);
+      // console.log(this.goodsList);
       let flag = false;
       this.goodsList.forEach((item) => {
         if (item['isChosen']) flag = true;
@@ -112,7 +112,7 @@ export default {
     if (userInfo === undefined || userInfo === null) return [];
     else {
       let goods = userInfo.carts;
-      console.log(goods);
+      // console.log(goods);
       goods.forEach((item, index) => {
         this.$set(item, 'isChosen', false); // 这里，给对象添加属性，用$set方法。
       });

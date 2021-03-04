@@ -47,7 +47,7 @@ export default {
   methods: {
     onSubmit(values) {
       this.checkLogin(values);
-      console.log('submit', values);
+      // console.log('submit', values);
     },
     checkLogin(userInfo) {
       // 判断用户账号密码是否正确

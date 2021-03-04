@@ -95,7 +95,7 @@ export default {
         return;
       }
       let arr = this.$refs.multipleTable.selection;
-      console.log(arr);
+      // console.log(arr);
       let total = 0;
       arr.forEach((item) => {
         total += item['价格'] * item['num'];
@@ -128,7 +128,7 @@ export default {
           message: '请先选择商品!',
         });
       } else {
-        console.log(arr);
+        // console.log(arr);
         this.$router.push({
           name: 'pay',
           path: '/PC/pay',
@@ -142,7 +142,7 @@ export default {
       }
     },
     addNum(item) {
-      console.log(item);
+      // console.log(item);
     },
     getTitle(item) {
       return item;
@@ -152,8 +152,8 @@ export default {
       return item.split('/\r\n')[0];
     },
     handleDelete(index, row) {
-      console.log(index);
-      console.log(row);
+      // console.log(index);
+      // console.log(row);
       this.tableData.splice(index, 1);
 
       let users = localStorage.getItem('users');
@@ -164,7 +164,7 @@ export default {
       let currentUser = users.filter((item) => {
         return item['username'] === userInfo['username'];
       })[0];
-      console.log(currentUser);
+      // console.log(currentUser);
       currentUser.carts = this.tableData;
       this.$store.state.userInfo = currentUser;
 
