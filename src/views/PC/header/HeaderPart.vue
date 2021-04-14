@@ -49,7 +49,7 @@
         >
           <!-- <div>
             <div>@son:Z09418208</div>
-            <div>@sname:蒋伟伟</div>
+            <div>@sname:张灵灵</div>
             <div>@email:1754082565@qq.com</div>
           </div> -->
           <!-- <el-link :underline="false" slot="reference"> 关于</el-link> -->
