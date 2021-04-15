@@ -265,7 +265,7 @@ export default {
 
 .login .content {
   background: #f98985;
-  background: url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201807%2F31%2F20180731215649_yjlmr.thumb.700_0.jpeg&refer=http%3A%2F%2Fb-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1616912700&t=1a86c7ddc3e39d34da645084bc0cd33b);
+  background: url("/static/bg.jpg");
   height:454px;
   background-size: 100% 100%;
 }
